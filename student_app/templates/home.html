@@ -1,0 +1,25 @@
+<h1> Student List View  </h1>
+
+
+<h1>Students</h1>
+
+<button  style="margin:10px;"   onclick="document.location= '{% url 'create_student' %}'  ">Create Student'</button>
+
+<ul>
+{% for student in object_list %}
+<li>
+    <h1><a href={% url 'student_detail' student.Roll_no %}>{{student.Name}}</a></h1>
+    
+
+    
+    <button  style="margin:10px;"   onclick="document.location= '{% url 'update_marks' student.Roll_no %}' ">Update Student</button>
+    
+    <button  style="margin:10px;"   onclick="document.location= '{% url 'delete_student' student.Roll_no %}' ">Delete Student</button>
+
+</li>
+
+{% endfor %}
+</ul>
+
+
+

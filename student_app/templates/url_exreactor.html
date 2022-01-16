@@ -1,0 +1,14 @@
+<h1> Search URL to extract urls </h1>
+<h1> {{error}} </h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="link">Give URL</label>
+    <input type="text" id="link" name="link" placeholder=" {{ex}} "><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <ul>
+    {% for l  in links %}
+        <li>{{ l }}</li>
+    {% endfor %}
+    </ul>

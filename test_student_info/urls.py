@@ -1,0 +1,29 @@
+"""test_student_info URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from student_app.views import StudentListView, StudentDetailsView, CreteStudent, UrlExtractor
+from student_app.views import DeleteStudent, UpdateStudentAccadamics
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', StudentListView.as_view(), name="student_list"),
+    path('details/<int:pk>', StudentDetailsView.as_view(), name="student_detail"),
+    path('create_student/', CreteStudent.as_view(), name="create_student"),
+    path('update_marks/<int:pk>', UpdateStudentAccadamics, name='update_marks'),
+    path('delete/<int:pk>', DeleteStudent, name='delete_student'),
+    path('url_getter/', UrlExtractor.as_view(), name='url_get')
+]
